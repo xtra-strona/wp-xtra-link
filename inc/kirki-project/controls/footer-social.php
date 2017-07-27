@@ -29,20 +29,20 @@ Kirki::add_field( 'my_config', array(
       'icon' => 'fa-facebook',
 			'link_text' => esc_attr__( 'FACEBOOK', 'xtra-link' ),
 			'link_url'  => 'https://www.facebook.com/',
-      'description' => esc_html__( 'Become A Friend', 'xtra-link' )
+      'description' => esc_attr__( 'Become A Friend', 'xtra-link' )
 		),
 		array(
       'icon' => 'fa-twitter',
 			'link_text' => esc_attr__( 'TWITTER', 'xtra-link' ),
 			'link_url'  => 'https://twitter.com',
-      'description' => esc_html__( 'Follow Us', 'xtra-link' )
+      'description' => esc_attr__( 'Follow Us', 'xtra-link' )
 		),
 
     array(
       'icon' => 'fa-google-plus',
       'link_text' => esc_attr__( 'GOOGLE +', 'xtra-link' ),
       'link_url'  => 'https://plus.google.com',
-      'description' => esc_html__( 'Add Us To Your Circle', 'xtra-link' )
+      'description' => esc_attr__( 'Add Us To Your Circle', 'xtra-link' )
     ),
 
 	),
@@ -62,11 +62,18 @@ Kirki::add_field( 'my_config', array(
 			'description' => esc_attr__( 'This will be the label for your link', 'xtra-link' ),
 			'default'     => '',
 		),
+
 		'link_url' => array(
 			'type'        => 'text',
 			'label'       => esc_attr__( 'Link URL', 'xtra-link' ),
 			'description' => esc_attr__( 'This will be the link URL', 'xtra-link' ),
 			'default'     => '',
 		),
+
+    'description' => array(
+      'type'        => 'text',
+      'label'       => esc_attr__( 'Description', 'xtra-link' ),
+      'description' => esc_attr__( 'Add Some Description', 'xtra-link' ),
+    ),
 	)
 ) );

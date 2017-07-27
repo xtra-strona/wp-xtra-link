@@ -46,7 +46,7 @@ Kirki::add_section( 'footer_map', array(
     'theme_supports' => '', // Rarely needed.
 ) );
 
-Kirki::add_section( 'footer_info_adress', array(
+Kirki::add_section( 'footer_info', array(
     'title'          => __( 'Add Info Adress', 'xtra-link' ),
     // 'description'    => __( 'Add Img Logos', 'xtra-link' ),
     'panel'          => 'panel_footer', // Not typically needed.

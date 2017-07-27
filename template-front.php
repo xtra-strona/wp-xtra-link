@@ -69,7 +69,7 @@ get_header(); ?>
 
   <!-- PORTFOLIO SECTION -->
   <div id="portfolio">
-    <div class="container"
+    <div class="container">
       <div class="row mt">
       <ul class="grid effect-2" id="grid">
 
@@ -128,7 +128,7 @@ $icon = $heading = $desc = '';
       </div>
       <div class="col-lg-3">
         <h3><?= $heading; ?></h3>
-        <p><?= $desc; ?></p>
+        <?= $desc; ?>
       </div>
 
 	<?php } ?>
