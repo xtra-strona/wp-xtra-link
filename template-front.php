@@ -189,29 +189,5 @@ wp_reset_postdata();
   </div><!-- row -->
 </div><!-- container -->
 
-
-<!-- CLIENTS LOGOS -->
-<div id="lg">
-  <div class="container">
-    <div class="row centered">
-      <div class="col-lg-2 col-lg-offset-1">
-        <img src="assets/img/clients/c01.gif" alt="">
-      </div>
-      <div class="col-lg-2">
-        <img src="assets/img/clients/c02.gif" alt="">
-      </div>
-      <div class="col-lg-2">
-        <img src="assets/img/clients/c03.gif" alt="">
-      </div>
-      <div class="col-lg-2">
-        <img src="assets/img/clients/c04.gif" alt="">
-      </div>
-      <div class="col-lg-2">
-        <img src="assets/img/clients/c05.gif" alt="">
-      </div>
-    </div><!-- row -->
-  </div><!-- container -->
-</div><!-- dg -->
-
 <?php endwhile; ?>
 <?php get_footer(); ?>

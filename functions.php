@@ -199,3 +199,9 @@ if ( file_exists( __DIR__ . '/inc/cmb2/init.php' ) ) {
 
 require get_template_directory() . '/inc/cmb2-project/portfolio.php';
 require get_template_directory() . '/inc/cmb2-project/front.php';
+
+/**
+ * KIRKI CUSTOMIZER!
+ */
+ include_once( dirname( __FILE__ ) . '/inc/kirki/kirki.php' );
+include_once( dirname( __FILE__ ) . '/inc/kirki-project/kirki-master.php' );
