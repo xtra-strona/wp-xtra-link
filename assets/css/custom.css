@@ -40,6 +40,12 @@ margin-left: 40px;
   background: rgba(14, 19, 88, 0.68);
 }
 
+.parallax-about {
+  min-height: 750px;
+  /*width: 100%;*/
+  background: rgba(2, 5, 21, 0.7);
+}
+
 /* PAGINATION */
 .pagination {
     display: flex;
@@ -85,9 +91,29 @@ color: #ea00ff;
 }
 
 /* PORTFOLIO CONTENT */
+.port-cont .marg-top {
+  margin-top: 70px !important;
+}
 .port-cont h2 {
   color: #25ff00 !important;
 }
 .port-cont p {
+color: aliceblue;
+}
+
+/* ABOUT CONTENT */
+.about-cont {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.about-cont .marg-top {
+  margin-top: 70px !important;
+}
+.about-cont h2 {
+  color: #25ff00 !important;
+  }
+.about-cont p {
 color: aliceblue;
 }

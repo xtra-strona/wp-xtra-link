@@ -217,8 +217,9 @@ if ( file_exists( __DIR__ . '/inc/cmb2/init.php' ) ) {
   require_once __DIR__ . '/inc/CMB2/init.php';
 }
 
-require get_template_directory() . '/inc/cmb2-project/portfolio.php';
 require get_template_directory() . '/inc/cmb2-project/front.php';
+require get_template_directory() . '/inc/cmb2-project/portfolio.php';
+require get_template_directory() . '/inc/cmb2-project/about.php';
 
 /**
  * KIRKI CUSTOMIZER!

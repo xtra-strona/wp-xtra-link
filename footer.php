@@ -36,6 +36,11 @@
    $('.parallax-portfolio').parallax({imageSrc: '<?php the_post_thumbnail_url(); ?>'});
 </script>
 
+<script type="text/javascript">
+   $('.parallax-about').parallax({imageSrc: '<?php the_post_thumbnail_url(); ?>'});
+</script>
+
+
 <script>
 new AnimOnScroll( document.getElementById( 'grid' ), {
 	minDuration : 0.4,

@@ -7,7 +7,7 @@ function myPortfolio() {
 
 	$cmb = new_cmb2_box( array(
 		'id'           => $prefix . 'opcje_portfolio',
-		'title'        => __( 'Opcje Portfolio', 'xtra-link' ),
+		'title'        => __( 'Edit Options', 'xtra-link' ),
 		'object_types' => array( 'link_port'),
 		'context'       => 'normal',
 		'priority'      => 'high',
@@ -85,7 +85,7 @@ function portfolioPage() {
 
 	$cmb = new_cmb2_box( array(
 		'id'           => $prefix . 'opcje_portfolio',
-		'title'        => __( 'Opcje Portfolio', 'xtra-link' ),
+		'title'        => __( 'Edit Options Page', 'xtra-link' ),
 		'object_types' => array( 'page' ), // post type
         'show_on'      => array( 'key' => 'page-template', 'value' => 'template-portfolio.php' ),
 		'context'       => 'normal',

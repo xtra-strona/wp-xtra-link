@@ -30,9 +30,12 @@ $query = new WP_Query( $args );
 <div class="parallax-portfolio" id="portwrap">
   <div class="container">
     <div class="row">
+       <?php while ( have_posts() ) : the_post(); ?>  
       <div class="col-lg-8 col-lg-offset-2 port-cont">
-        <h2><?= $txt_p_1; ?></h2>
-        <?php while ( have_posts() ) : the_post(); ?>  
+          <h2 class='<?php echo get_the_content() ? 'marg-top' : '';?>'>
+            <?= $txt_p_1; ?>
+          </h2>
+       
             <?php the_content(); ?>
         <?php endwhile; ?>
       </div>

@@ -7,7 +7,7 @@ function myFront() {
 
 	$cmb = new_cmb2_box( array(
 		'id'           => $prefix . 'opcje_portfolio',
-		'title'        => __( 'Opcje Portfolio', 'xtra-link' ),
+		'title'        => __( 'Edit Options', 'xtra-link' ),
     'object_types' => array( 'page' ), // post type
     'show_on'      => array( 'key' => 'page-template', 'value' => 'template-front.php' ),
 		'context'       => 'normal',
@@ -40,7 +40,7 @@ function myFront() {
   		'add_button'    => __( 'Add Another Entry', 'xtra-link' ),
   		'remove_button' => __( 'Remove Entry', 'xtra-link' ),
   		'sortable'      => true, // beta
-  		// 'closed'     => true, // true to have the groups closed by default
+  		'closed'     => true, // true to have the groups closed by default
   	),
   ) );
 
