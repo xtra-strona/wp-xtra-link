@@ -22,3 +22,72 @@ padding-top: 2.5rem;
 padding-right: 0px;
 padding-left: 0px;
 }
+
+.add-padd {
+margin-left: 40px;
+}
+
+/*PARALLAX*/
+.parallax-window {
+  min-height: 750px;
+  /*width: 100%;*/
+  background: transparent;
+}
+
+.parallax-portfolio {
+  min-height: 750px;
+  /*width: 100%;*/
+  background: rgba(14, 19, 88, 0.68);
+}
+
+/* PAGINATION */
+.pagination {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.pagination .dots {
+font-weight: bold;
+padding: 5px;
+}
+.pagination .current li {
+  color: black;
+  background-color: chartreuse;
+  font-weight: bold;
+}
+
+.pagination li {
+padding: 9px 15px;
+list-style: none;
+border: 2px solid #0d0d0d;
+margin: 1px;
+border-radius: 90px;
+background-color: #012d60;
+color: #54ff00;
+transition: all .3s ease-in-out;
+}
+
+.pagination li:hover {
+background-color: #00ffc1;
+color: #111214;
+}
+
+ .pagination .next, .prev {
+color: #ff5a15;
+padding: 5px;
+padding-top: 10px;
+font-weight: bold;
+}
+ .pagination .next, .prev:hover {
+color: #ea00ff;
+
+}
+
+/* PORTFOLIO CONTENT */
+.port-cont h2 {
+  color: #25ff00 !important;
+}
+.port-cont p {
+color: aliceblue;
+}

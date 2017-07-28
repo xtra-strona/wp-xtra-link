@@ -5,7 +5,7 @@ Template Name: Front Page
 get_header(); ?>
 
 <!-- MAIN IMAGE SECTION -->
-<div id="headerwrap">
+<div id="headerwrap" class="parallax-window">
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2">
@@ -82,13 +82,9 @@ get_header(); ?>
 
 <?php } ?>
 
-    <ul class='uk-pagination uk-flex-center' uk-margin>
-       <?php pag_link($query,$paged);?>
-    </ul>
-
   <?php } else {
 
-	echo 'No Post Found';
+	echo 'No Portfolio Found';
 
 }
 // Restore original Post Data

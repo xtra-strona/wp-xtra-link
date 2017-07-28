@@ -13,7 +13,7 @@ function pag_link($query,$paged) {
   	'current' => max( 1, $paged ),
   	'show_all'           => false,
   	'end_size'           => 1,
-  	'mid_size'           => 2,
+  	'mid_size'           => 4,
   	'prev_next'          => true,
   	'prev_text'          => __('« Prev'),
   	'next_text'          => __('Next »'),

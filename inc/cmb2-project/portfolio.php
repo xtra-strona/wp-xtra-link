@@ -76,3 +76,58 @@ $cmb->add_field( array(
 
 
 }
+
+add_action( 'cmb2_admin_init', 'portfolioPage' );
+
+function portfolioPage() {
+
+	$prefix = '_port_';
+
+	$cmb = new_cmb2_box( array(
+		'id'           => $prefix . 'opcje_portfolio',
+		'title'        => __( 'Opcje Portfolio', 'xtra-link' ),
+		'object_types' => array( 'page' ), // post type
+        'show_on'      => array( 'key' => 'page-template', 'value' => 'template-portfolio.php' ),
+		'context'       => 'normal',
+		'priority'      => 'high',
+		'show_names'    => true, // Show field names on the left
+	) );
+
+	$cmb->add_field( array(
+		'name' => __( 'Add Subtittle', 'xtra-link' ),
+		'id' => $prefix . 'subtittle_port',
+		'type' => 'text',
+	) );
+
+
+	$cmb->add_field( array(
+		'name' => __( 'Text Top', 'xtra-link' ),
+		'id' => $prefix . 'txt_ar_1',
+		'type' => 'text',
+	) );
+
+
+	$cmb->add_field( array(
+		'name' => __( 'Text Bottom', 'xtra-link' ),
+		'id' => $prefix . 'txt_ar_2',
+		'type' => 'textarea_small',
+      
+		
+	) );
+
+		$cmb->add_field( array(
+		'name' => __( 'Add Url Button', 'xtra-link' ),
+		'id' => $prefix . 'href_1',
+		'type' => 'text',
+
+	) );
+	
+		$cmb->add_field( array(
+		'name' => __( 'Add Text Button', 'xtra-link' ),
+		'id' => $prefix . 'href_2',
+		'type' => 'text',
+   
+		
+	) );
+
+}

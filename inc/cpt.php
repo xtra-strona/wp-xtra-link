@@ -39,7 +39,7 @@ function custom_post_type() {
 		'supports'              => array( 'title', 'editor', 'thumbnail', ),
     // 'taxonomies'            => array( 'category', 'post_tag' ),
 		'taxonomies'            => array( 'category'),
-		'hierarchical'          => false, // Must
+		'hierarchical'          => true, // Must
 		'public'                => true,
 		'show_ui'               => true,
 		'show_in_menu'          => true,
@@ -52,7 +52,7 @@ function custom_post_type() {
 		'exclude_from_search'   => false,
 		'publicly_queryable'    => true,
 		// 'capability_type'       => 'page',
-		'rewrite' => array("slug" => "my-portfolio") // Must
+		// 'rewrite' => array("slug" => "my-portfolio") // Must
 	);
 
 	register_post_type( 'link_port', $args );
