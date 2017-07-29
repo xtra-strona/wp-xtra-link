@@ -45,7 +45,11 @@ margin-left: 40px;
   /*width: 100%;*/
   background: rgba(2, 5, 21, 0.7);
 }
-
+.parallax-services {
+    min-height: 750px;
+  /*width: 100%;*/
+  background: rgba(2, 5, 21, 0.7);
+}
 /* PAGINATION */
 .pagination {
     display: flex;
@@ -115,5 +119,16 @@ color: aliceblue;
   color: #25ff00 !important;
   }
 .about-cont p {
+color: aliceblue;
+}
+
+/* SERVICES CONTENT */
+.service-cont .marg-top {
+  margin-top: 70px !important;
+}
+.service-cont h2 {
+  color: #20ff00 !important;
+  }
+.service-cont p {
 color: aliceblue;
 }

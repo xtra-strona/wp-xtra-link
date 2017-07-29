@@ -220,6 +220,7 @@ if ( file_exists( __DIR__ . '/inc/cmb2/init.php' ) ) {
 require get_template_directory() . '/inc/cmb2-project/front.php';
 require get_template_directory() . '/inc/cmb2-project/portfolio.php';
 require get_template_directory() . '/inc/cmb2-project/about.php';
+require get_template_directory() . '/inc/cmb2-project/services.php';
 
 /**
  * KIRKI CUSTOMIZER!

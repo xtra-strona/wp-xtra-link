@@ -40,6 +40,9 @@
    $('.parallax-about').parallax({imageSrc: '<?php the_post_thumbnail_url(); ?>'});
 </script>
 
+<script type="text/javascript">
+   $('.parallax-services').parallax({imageSrc: '<?php the_post_thumbnail_url(); ?>'});
+</script>
 
 <script>
 new AnimOnScroll( document.getElementById( 'grid' ), {

@@ -29,8 +29,8 @@ function myAbout() {
 	) );
 
 $cmb->add_field( array(
-	'name'    => 'Test File',
-	'desc'    => 'Upload an image or enter an URL.',
+	'name'    => __('Upload File', 'xtra-link' ),
+	'desc'    => __( 'Upload an image or enter an URL.', 'xtra-link' ),
 	'id'      => $prefix . 'img_3',
 	'type'    => 'file',
 ) );
