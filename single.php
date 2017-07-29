@@ -1,35 +1,53 @@
-<?php
-/**
- * The template for displaying all single posts
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
- *
- * @package Xtra-Link
- */
+<?php get_header(); ?>
+<br>
+<!-- Page Content -->
+<div class="container">
 
-get_header(); ?>
+    <div class="row">
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main">
+<?php if ( is_active_sidebar( 'sidebar-1' ) ) : ?>
+        <!-- Blog Entries Column -->
+        <div class="col-md-8">
 
-		<?php
-		while ( have_posts() ) : the_post();
+        <?php else : ?>
 
-			get_template_part( 'template-parts/content', get_post_format() );
+          <div class="col-md-12">
 
-			the_post_navigation();
+<?php endif ?>
 
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
+<?php if (is_home() || is_front_page()): ?>
+  <h1 class="page-header">
+      <?php bloginfo('name'); ?>
+      <small><?php bloginfo('description'); ?></small>
+  </h1>
+<?php endif; ?>
 
-		endwhile; // End of the loop.
-		?>
+<!-- Single Post -->
+<?php while ( have_posts() ) : the_post();
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
+    get_template_part('template-parts/content','single'); ?>
+<!-- Pager -->
+<div class="pager">
+     <?php previous_post_link('<span class="prev-link">%link</span>', __('&larr; Poprzedni','textdomain')); ?>
+     <?php next_post_link('<span class="next-link">%link</span>', __('Następny &rarr;','textdomain')); ?>
+</div>
 
-<?php
-get_sidebar();
-get_footer();
+<?php 	// If comments are open or we have at least one comment, load up the comment template.
+					if ( comments_open() || get_comments_number() ) :
+						comments_template();
+					endif; ?>
+
+  <?php  endwhile; ?>
+
+        </div>
+
+    <?php if ( is_active_sidebar( 'sidebar-1' ) ) { ?>
+        <!-- Blog Sidebar Widgets Column -->
+        <div class="col-md-4">
+                 <?php get_sidebar(); ?>
+        </div>
+    <?php } ?>
+        
+    </div><!-- /.row -->
+ </div><!-- /.container -->
+<?php get_footer(); ?>

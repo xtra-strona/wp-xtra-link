@@ -1,60 +1,57 @@
-<?php
-/**
- * The template for displaying 404 pages (not found)
- *
- * @link https://codex.wordpress.org/Creating_an_Error_404_Page
- *
- * @package Xtra-Link
- */
+<?php get_header(); ?>
 
-get_header(); ?>
+<div class='container-fluid'>
+	<h2 class="alert alert-danger">
+		<?php _e('Error 404 No specified page !!!', 'xtra-link'); ?>
+	</h2>
+</div>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main">
+<!-- Page Content -->
+<div class="container">
 
-			<section class="error-404 not-found">
-				<header class="page-header">
-					<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'xtra-link' ); ?></h1>
-				</header><!-- .page-header -->
+    <div class="row">
 
-				<div class="page-content">
-					<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'xtra-link' ); ?></p>
+<?php if ( is_active_sidebar( 'sidebar-1' ) ) : ?>
+        <!-- Blog Entries Column -->
+        <div class="col-md-8">
 
-					<?php
-						get_search_form();
+        <?php else : ?>
 
-						the_widget( 'WP_Widget_Recent_Posts' );
-					?>
+          <div class="col-md-12">
 
-					<div class="widget widget_categories">
-						<h2 class="widget-title"><?php esc_html_e( 'Most Used Categories', 'xtra-link' ); ?></h2>
-						<ul>
-						<?php
-							wp_list_categories( array(
-								'orderby'    => 'count',
-								'order'      => 'DESC',
-								'show_count' => 1,
-								'title_li'   => '',
-								'number'     => 10,
-							) );
-						?>
-						</ul>
-					</div><!-- .widget -->
+<?php endif ?>
 
-					<?php
+  <h2><?php _e('Maybe Here Something You Will Find:', 'xtra-link'); ?></h2>
 
-						/* translators: %1$s: smiley */
-						$archive_content = '<p>' . sprintf( esc_html__( 'Try looking in the monthly archives. %1$s', 'xtra-link' ), convert_smilies( ':)' ) ) . '</p>';
-						the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$archive_content" );
+<?php get_search_form(); ?>
 
-						the_widget( 'WP_Widget_Tag_Cloud' );
-					?>
+<h2><?php _e('Or look in the Pages Archives:', 'xtra-link'); ?></h2>
 
-				</div><!-- .page-content -->
-			</section><!-- .error-404 -->
+<select class='well' name="archive-dropdown" onchange="document.location.href=this.options[this.selectedIndex].value;">
+  <option value=""><?php echo esc_attr( __( 'Select Day' ) ); ?></option>
+  <?php wp_get_archives( array( 'type' => 'daily', 'format' => 'option', 'show_post_count' => 1 ) ); ?>
+</select>
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
+<select class='well' name="archive-dropdown" onchange="document.location.href=this.options[this.selectedIndex].value;">
+  <option value=""><?php echo esc_attr( __( 'Select Month' ) ); ?></option>
+  <?php wp_get_archives( array( 'type' => 'monthly', 'format' => 'option', 'show_post_count' => 1 ) ); ?>
+</select>
 
-<?php
-get_footer();
+<select class='well' name="archive-dropdown" onchange="document.location.href=this.options[this.selectedIndex].value;">
+  <option value=""><?php echo esc_attr( __( 'Select Year' ) ); ?></option>
+  <?php wp_get_archives( array( 'type' => 'yearly', 'format' => 'option', 'show_post_count' => 1 ) ); ?>
+</select>
+
+</div>
+
+    <?php if ( is_active_sidebar( 'sidebar-1' ) ) { ?>
+        <!-- Blog Sidebar Widgets Column -->
+        <div class="col-md-4">
+                 <?php get_sidebar(); ?>
+        </div>
+    <?php } ?>
+
+    </div><!-- /.row -->
+ </div><!-- /.container -->
+
+<?php get_footer(); ?>

@@ -1,51 +1,64 @@
-<?php
-/**
- * The template for displaying archive pages
- *
- * @link https://codex.wordpress.org/Template_Hierarchy
- *
- * @package Xtra-Link
- */
+<?php get_header();?>
+<br>
+<!-- Page Content -->
+<div class="container">
 
-get_header(); ?>
+    <div class="row">
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main">
+<?php if ( is_active_sidebar( 'sidebar-1' ) ) : ?>
+        <!-- Blog Entries Column -->
+        <div class="col-md-8">
 
-		<?php
-		if ( have_posts() ) : ?>
+        <?php else : ?>
 
-			<header class="page-header">
-				<?php
-					the_archive_title( '<h1 class="page-title">', '</h1>' );
-					the_archive_description( '<div class="archive-description">', '</div>' );
-				?>
-			</header><!-- .page-header -->
+          <div class="col-md-12">
 
-			<?php
-			/* Start the Loop */
-			while ( have_posts() ) : the_post();
+<?php endif ?>
 
-				/*
-				 * Include the Post-Format-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', get_post_format() );
+<select class='well' name="archive-dropdown" onchange="document.location.href=this.options[this.selectedIndex].value;">
+  <option value=""><?php echo esc_attr( __( 'Select Day', 'xtra-link' ) ); ?></option>
+  <?php wp_get_archives( array( 'type' => 'daily', 'format' => 'option', 'show_post_count' => 1 ) ); ?>
+</select>
 
-			endwhile;
+<select class='well' name="archive-dropdown" onchange="document.location.href=this.options[this.selectedIndex].value;">
+  <option value=""><?php echo esc_attr( __( 'Select Month', 'xtra-link' ) ); ?></option>
+  <?php wp_get_archives( array( 'type' => 'monthly', 'format' => 'option', 'show_post_count' => 1 ) ); ?>
+</select>
 
-			the_posts_navigation();
+<select class='well' name="archive-dropdown" onchange="document.location.href=this.options[this.selectedIndex].value;">
+  <option value=""><?php echo esc_attr( __( 'Select Year', 'xtra-link' ) ); ?></option>
+  <?php wp_get_archives( array( 'type' => 'yearly', 'format' => 'option', 'show_post_count' => 1 ) ); ?>
+</select>
 
-		else :
+          <!-- First Blog Post -->
+            <?php if ( have_posts() ) : while ( have_posts() ) : the_post();
 
-			get_template_part( 'template-parts/content', 'none' );
+                 get_template_part('template-parts/content', 'archive');
 
-		endif; ?>
+              endwhile; ?>
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
+              <!-- Pager -->
+                <?php the_posts_pagination( array(
+                     'mid_size'  => 2,
+                     'prev_text' => __( '&larr; Previous', 'xtra-link' ),
+                     'next_text' => __( 'Next &rarr;', 'xtra-link' ),
+                    ) );
 
-<?php
-get_sidebar();
-get_footer();
+                   else : ?>
+
+            	<h3><?php _e( 'Sorry, no posts matched the criteria.','xtra-link' ); ?></h3>
+
+            <?php endif; ?>
+
+        </div>
+
+    <?php if ( is_active_sidebar( 'sidebar-1' ) ) { ?>
+        <!-- Blog Sidebar Widgets Column -->
+        <div class="col-md-4">
+                 <?php get_sidebar(); ?>
+        </div>
+    <?php } ?>
+
+    </div><!-- /.row -->
+ </div><!-- /.container -->
+<?php get_footer(); ?>
