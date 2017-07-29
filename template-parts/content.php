@@ -1,54 +1,33 @@
-<?php
-/**
- * Template part for displaying posts
- *
- * @link https://codex.wordpress.org/Template_Hierarchy
- *
- * @package Xtra-Link
- */
+<article id="post-<?php the_ID(); ?>" <?php post_class('home-page'); ?>> <!-- Tutaj dodałem klasę Home Page ... Tak też możecie wcielać własne klasy -->
 
-?>
+    <h2>
+        <a href="<?php the_permalink(); ?>"><?php the_title();?></a>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php
-		if ( is_singular() ) :
-			the_title( '<h1 class="entry-title">', '</h1>' );
-		else :
-			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-		endif;
+        <small>
 
-		if ( 'post' === get_post_type() ) : ?>
-		<div class="entry-meta">
-			<?php xtra_link_posted_on(); ?>
-		</div><!-- .entry-meta -->
-		<?php
-		endif; ?>
-	</header><!-- .entry-header -->
+          <?php _e('Added', 'xtra-link')?>
+          <a href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>">
+            <?php the_author(); ?>
+          </a>
+           |
+          <span class="glyphicon glyphicon-time"></span>
+		  <span class='posted-on'> Posted on <?php the_time('j F, Y'); ?></span>
+		  
+        </small>
 
-	<div class="entry-content">
-		<?php
-			the_content( sprintf(
-				wp_kses(
-					/* translators: %s: Name of current post. Only visible to screen readers */
-					__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'xtra-link' ),
-					array(
-						'span' => array(
-							'class' => array(),
-						),
-					)
-				),
-				get_the_title()
-			) );
+    </h2>
 
-			wp_link_pages( array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'xtra-link' ),
-				'after'  => '</div>',
-			) );
-		?>
-	</div><!-- .entry-content -->
+  <p class="lead"> <?php _e('Categories: ', 'xtra-link'); the_category( ', ' ); if(has_tag()) echo ' | ';  the_tags(); ?></p>
 
-	<footer class="entry-footer">
-		<?php xtra_link_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
-</article><!-- #post-<?php the_ID(); ?> -->
+    <?php if ( has_post_thumbnail() ) { ?>
+	  <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('large',array('class'=>'center-block img-responsive')); ?></a>
+	  <br>
+    <?php } else {
+// Obrazek Zastępczy z http://placehold.it
+      echo "<hr /><img class='img-responsive' src='http://placehold.it/900x300' alt='dodaj-obrazek'><hr />";
+    } ?>
+
+    <?php is_home() ? the_excerpt() : the_content(); ?>
+    
+    <hr>
+</article>

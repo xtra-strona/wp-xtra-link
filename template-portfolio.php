@@ -35,7 +35,6 @@ $query = new WP_Query( $args );
           <h2 class='<?php echo get_the_content() ? 'marg-top' : '';?>'>
             <?= $txt_p_1; ?>
           </h2>
-       
             <?php the_content(); ?>
         <?php endwhile; ?>
       </div>

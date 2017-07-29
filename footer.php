@@ -10,7 +10,9 @@
 </div><!-- Contact Footer -->
 
 <?php wp_footer(); ?>
-
+<?php 
+$img_blog = get_theme_mod( 'img_blog', '' );
+?>
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
@@ -42,6 +44,10 @@
 
 <script type="text/javascript">
    $('.parallax-services').parallax({imageSrc: '<?php the_post_thumbnail_url(); ?>'});
+</script>
+
+<script type="text/javascript">
+   $('.parallax-oth-pages').parallax({imageSrc: '<?php echo esc_url( $img_blog ); ?>'});
 </script>
 
 <script>

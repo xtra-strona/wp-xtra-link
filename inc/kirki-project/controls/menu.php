@@ -2,7 +2,7 @@
 
 Kirki::add_field( 'my_config', array(
 	'type'        => 'switch',
-	'settings'    => 'on_of_9',
+	'settings'    => 'on_of_menu',
 	'label'       => __( 'On Off Social Info', 'xtra-link' ),
 	'section'     => 'my_menu',
 	'default'     => '1',
@@ -20,7 +20,7 @@ Kirki::add_field( 'my_config', array(
 	'priority'    => 10,
 	'row_label' => array(
 		'type' => 'text',
-		'value' => esc_attr__('your custom value', 'xtra-link' ),
+		'value' => esc_attr__('Change Social Adress', 'xtra-link' ),
 	),
 	'settings'    => 'rep_social',
 	'default'     => array(

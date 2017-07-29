@@ -29,7 +29,7 @@ function pag_link($query,$paged) {
 
 // Cust excerpt_length
 function custom_excerpt_length( $length ) {
-        return 20;
+    return (is_home()) ? 40 : 20;
     }
     add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 

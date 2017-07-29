@@ -1,51 +1,58 @@
-<?php
-/**
- * The template for displaying search results pages
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#search-result
- *
- * @package Xtra-Link
- */
+<?php get_header();
+        global $wp_query;
+        $total_results = $wp_query->found_posts; ?>
 
-get_header(); ?>
+<?php if(has_header_image()) : ?>
 
-	<section id="primary" class="content-area">
-		<main id="main" class="site-main">
+<?php endif; ?>
 
-		<?php
-		if ( have_posts() ) : ?>
+<!-- Page Content -->
+<div class="container">
 
-			<header class="page-header">
-				<h1 class="page-title"><?php
-					/* translators: %s: search query. */
-					printf( esc_html__( 'Search Results for: %s', 'xtra-link' ), '<span>' . get_search_query() . '</span>' );
-				?></h1>
-			</header><!-- .page-header -->
+    <div class="row">
 
-			<?php
-			/* Start the Loop */
-			while ( have_posts() ) : the_post();
+<?php if ( is_active_sidebar( 'sidebar-1' ) ) : ?>
+        <!-- Blog Entries Column -->
+        <div class="col-md-8">
 
-				/**
-				 * Run the loop for the search to output the results.
-				 * If you want to overload this in a child theme then include a file
-				 * called content-search.php and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', 'search' );
+        <?php else : ?>
 
-			endwhile;
+          <div class="col-md-12">
 
-			the_posts_navigation();
+<?php endif ?>
 
-		else :
+<h2 class='text-red'><?php echo __('Amount of Items Found: ' ,'xtra-link') . $total_results; ?></h2>
+<!-- First Blog Post -->
+            <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+                    <ul>
+                      <?php get_template_part('template-parts/content', 'search'); ?>
+                    </ul>
+            <?php endwhile; ?>
 
-			get_template_part( 'template-parts/content', 'none' );
+              <!-- Pager -->
+                <?php the_posts_pagination( array(
+                     'mid_size'  => 2,
+                     'prev_text' => __( '&larr; Previous', 'xtra-link' ),
+                     'next_text' => __( 'Next &rarr;', 'xtra-link' ),
+                    ) );
 
-		endif; ?>
+                   else : ?>
 
-		</main><!-- #main -->
-	</section><!-- #primary -->
+                   <h3><?php _e( 'No Word Search: ', 'xtra-link' ) . the_search_query(); ?></h3>
+                            <h4><?php echo __('Wyszukaj Ponownie: ', 'xtra-link'); ?></h4>
+                                     <?php get_search_form(); ?>
+            <?php endif; ?>
 
-<?php
-get_sidebar();
-get_footer();
+        </div>
+
+    <?php if ( is_active_sidebar( 'sidebar-1' ) ) { ?>
+        <!-- Blog Sidebar Widgets Column -->
+        <div class="col-md-4">
+                 <?php get_sidebar(); ?>
+        </div>
+    <?php } ?>
+
+    </div><!-- /.row -->
+ </div><!-- /.container -->
+
+<?php get_footer(); ?>

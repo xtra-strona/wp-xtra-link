@@ -1,56 +1,61 @@
-<?php
-/**
- * The main template file
- *
- * This is the most generic template file in a WordPress theme
- * and one of the two required files for a theme (the other being style.css).
- * It is used to display a page when nothing more specific matches a query.
- * E.g., it puts together the home page when no home.php file exists.
- *
- * @link https://codex.wordpress.org/Template_Hierarchy
- *
- * @package Xtra-Link
- */
+<?php get_header();
+	$txt_blog_1 = get_theme_mod( 'img_blog_txt');
+	$txt_blog_2 = get_theme_mod( 'img_blog_txtarea');
+?>
 
-get_header(); ?>
+<div class="parallax-oth-pages">
+  <div class="container">
+       <h1><?= $txt_blog_1; ?></h1>
+       <p><?= $txt_blog_2; ?></p>
+  </div><!-- /container -->
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main">
+<br>
+<!-- Page Content -->
+<div class="container">
 
-		<?php
-		if ( have_posts() ) :
+    <div class="row">
 
-			if ( is_home() && ! is_front_page() ) : ?>
-				<header>
-					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-				</header>
+<?php if ( is_active_sidebar( 'sidebar-1' ) ) : ?>
+        <!-- Blog Entries Column -->
+        <div class="col-md-8">
 
-			<?php
-			endif;
+        <?php else : ?>
 
-			/* Start the Loop */
-			while ( have_posts() ) : the_post();
+          <div class="col-md-12">
 
-				/*
-				 * Include the Post-Format-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', get_post_format() );
+<?php endif; ?>
 
-			endwhile;
+          <!-- First Blog Post -->
+            <?php if ( have_posts() ) : while ( have_posts() ) : the_post();
 
-			the_posts_navigation();
+                 get_template_part('template-parts/content', get_post_format());
 
-		else :
+              endwhile; ?>
 
-			get_template_part( 'template-parts/content', 'none' );
+              <!-- Pager -->
+                <?php the_posts_pagination( array(
+                     'mid_size'  => 2,
+                     'prev_text' => __( '&larr; Previous', 'xtra-link' ),
+                     'next_text' => __( 'Next &rarr;', 'xtra-link' ),
+                    ) );
 
-		endif; ?>
+                   else : ?>
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
+            	<h3><?php _e( 'Sorry, no posts matched the criteria.','xtra-link' ); ?></h3>
 
-<?php
-get_sidebar();
-get_footer();
+            <?php endif; ?>
+
+        </div>
+
+    <?php if ( is_active_sidebar( 'sidebar-1' ) ) { ?>
+        <!-- Blog Sidebar Widgets Column -->
+        <div class="col-md-4">
+                 <?php get_sidebar(); ?>
+        </div>
+    <?php } ?>
+
+    </div><!-- /.row -->
+ </div><!-- /.container -->
+
+ </div><!-- /.parallax-oth-pages -->
+<?php get_footer(); ?>
