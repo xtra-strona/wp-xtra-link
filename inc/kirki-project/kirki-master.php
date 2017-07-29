@@ -9,3 +9,5 @@ require get_template_directory() . '/inc/kirki-project/controls/stay-connected.p
 require get_template_directory() . '/inc/kirki-project/controls/footer-social.php';
 require get_template_directory() . '/inc/kirki-project/controls/footer-map.php';
 require get_template_directory() . '/inc/kirki-project/controls/footer-info.php';
+
+require get_template_directory() . '/inc/kirki-project/controls/menu.php';

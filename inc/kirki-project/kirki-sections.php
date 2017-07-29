@@ -54,3 +54,12 @@ Kirki::add_section( 'footer_info', array(
     'capability'     => 'edit_theme_options',
     'theme_supports' => '', // Rarely needed.
 ) );
+
+Kirki::add_section( 'my_menu', array(
+    'title'          => __( 'Menu Panel Options', 'xtra-link' ),
+    // 'description'    => __( 'Add Img Logos', 'xtra-link' ),
+    'panel'          => 'nav_menus', // Not typically needed.
+    'priority'       => 160,
+    'capability'     => 'edit_theme_options',
+    'theme_supports' => '', // Rarely needed.
+) );
