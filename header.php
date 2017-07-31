@@ -14,6 +14,10 @@
 			<h1 class="logo"><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo('name'); ?></a></h1>
 			<i class="fa fa-arrow-right menu-close"></i>
 
+			<div class="logo">
+				<?php the_custom_logo(); ?>
+			</div>
+
         <?php echo strip_tags(xtra_nav(), '<a>'); ?>
 
 <?php
@@ -51,10 +55,10 @@ $settings = get_theme_mod( 'rep_social', $defaults ); ?>
 			<?php endif; ?>
 				<i class="fa <?= $setting['icon']; ?>"></i>
 				</a>
-			
+
 		<?php endforeach; ?>
 	</div>
-	
+
 <?php endif; ?>
 
 </div>

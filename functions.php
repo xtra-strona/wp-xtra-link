@@ -91,8 +91,8 @@ function xtra_link_setup() {
 	 * @link https://codex.wordpress.org/Theme_Logo
 	 */
 	add_theme_support( 'custom-logo', array(
-		'height'      => 250,
-		'width'       => 250,
+		'height'      => 120,
+		'width'       => 120,
 		'flex-width'  => true,
 		'flex-height' => true,
 	) );
@@ -118,6 +118,8 @@ add_action( 'after_setup_theme', 'xtra_link_content_width', 0 );
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
 function xtra_link_widgets_init() {
+
+
 	register_sidebar( array(
 		'name'          => esc_html__( 'Sidebar', 'xtra-link' ),
 		'id'            => 'sidebar-1',
@@ -127,6 +129,7 @@ function xtra_link_widgets_init() {
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
+
 }
 add_action( 'widgets_init', 'xtra_link_widgets_init' );
 

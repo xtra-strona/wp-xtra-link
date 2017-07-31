@@ -2,6 +2,27 @@ li {
   list-style: none;
 }
 
+
+.logo {
+  display: flex;
+  justify-content: center;
+}
+.logo img {
+  /*position: fixed;
+  z-index: 999;*/
+  width: 120px;
+  height: 120px;
+  transition: all .2s ease-in-out;
+}
+.logo img:hover {
+  border-radius: 90%;
+  padding: 7px;
+  border: 2px solid red;
+  -webkit-transform: scale(0.9);
+-ms-transform: scale(0.9);
+transform: scale(0.9);
+}
+
 .logos-bar {
   display: flex;
   justify-content: center;
@@ -62,7 +83,7 @@ margin-left: 40px;
 .parallax-oth-pages {
     min-height: 450px;
   /*width: 100%;*/
-background: rgba(5, 19, 26, 0.81);
+background: rgba(5, 19, 26, 0.89);
 color: aliceblue;
 }
 
@@ -172,4 +193,17 @@ color: aliceblue;
   }
 .service-cont p {
 color: aliceblue;
+}
+
+/*POST THUMB EFFECT*/
+.img-post {
+  border: 5px solid #171d1e;
+transition: all .3s ease-in-out;
+}
+.img-post:hover {
+  /*padding: 2rem;*/
+  border: 5px solid aliceblue;
+  -webkit-transform: scale(0.9);
+-ms-transform: scale(0.9);
+transform: scale(0.9);
 }
