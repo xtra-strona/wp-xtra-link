@@ -9,26 +9,9 @@
 	</div><!-- container -->
 </div><!-- Contact Footer -->
 
-<?php wp_footer(); ?>
-<?php 
+<?php wp_footer(); 
 $img_blog = get_theme_mod( 'img_blog', '' );
-?>
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<!-- <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script> -->
-
-<!-- <script src="<?php // bloginfo('template_url') ?>/assets/js/modernizr.custom.js"></script>
-
-<script src="<?php // bloginfo('template_url') ?>/assets/js/jquery.js"></script>
-
-<script src="<?php // bloginfo('template_url') ?>/assets/js/parallax.min.js"></script>
-<script src="<?php // bloginfo('template_url') ?>/assets/js/bootstrap.min.js"></script>
-<script src="<?php // bloginfo('template_url') ?>/assets/js/main.js"></script>
-<script src="<?php // bloginfo('template_url') ?>/assets/js/masonry.pkgd.min.js"></script>
-<script src="<?php // bloginfo('template_url') ?>/assets/js/imagesloaded.js"></script>
-<script src="<?php // bloginfo('template_url') ?>/assets/js/classie.js"></script>
-<script src="<?php // bloginfo('template_url') ?>/assets/js/AnimOnScroll.js"></script> -->
+ // get_template_part( 'inc/old', 'footer-script'); ?>
 
 <script type="text/javascript">
    $('.parallax-window').parallax({imageSrc: '<?php header_image(); ?>'});

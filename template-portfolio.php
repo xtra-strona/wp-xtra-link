@@ -87,12 +87,11 @@ $query = new WP_Query( $args );
     </nav>
           <?php } else {
 
-        	echo 'No Post Found';
+        	echo __('No Post Found', 'xtra-link');
 
         }
         // Restore original Post Data
         wp_reset_postdata(); ?>
-
 
       </div><!-- row -->
     </div><!-- container -->

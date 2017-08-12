@@ -28,8 +28,8 @@
     get_template_part('template-parts/content','single'); ?>
 <!-- Pager -->
 <div class="pager">
-     <?php previous_post_link('<span class="prev-link">%link</span>', __('&larr; Poprzedni','textdomain')); ?>
-     <?php next_post_link('<span class="next-link">%link</span>', __('Następny &rarr;','textdomain')); ?>
+     <?php previous_post_link('<span class="prev-link">%link</span>', __('&larr; Poprzedni','xtra-link')); ?>
+     <?php next_post_link('<span class="next-link">%link</span>', __('Następny &rarr;','xtra-link')); ?>
 </div>
 
 <?php 	// If comments are open or we have at least one comment, load up the comment template.

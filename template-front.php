@@ -84,7 +84,7 @@ get_header(); ?>
 
   <?php } else {
 
-	echo 'No Portfolio Found';
+	echo __('No Portfolio Found', 'xtra-link');
 
 }
 // Restore original Post Data
@@ -94,8 +94,6 @@ wp_reset_postdata(); ?>
       </div><!-- row -->
     </div><!-- container -->
   </div><!-- portfolio -->
-
-
 
   <!-- SERVICES SECTION -->
   <div id="services">
@@ -144,7 +142,11 @@ $icon = $heading = $desc = '';
       <p><?= $recent_p_2; ?></p>
     </div><!-- col-lg-8-->
     <div class="col-lg-4 goright">
-      <p><a href="<?php echo get_permalink( get_option( 'page_for_posts' ) ); ?>"><i class="fa fa-angle-right"></i> <?php _e('Show All Posts', 'xtra-link'); ?></a></p>
+      <p>
+          <a href="<?php echo get_permalink( get_option( 'page_for_posts' ) ); ?>">
+            <i class="fa fa-angle-right"></i> <?php _e('Show All Posts', 'xtra-link'); ?>
+          </a>
+      </p>
     </div>
   </div><!-- row -->
 

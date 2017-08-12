@@ -10,7 +10,7 @@
           </a>
            |
           <span class="glyphicon glyphicon-time"></span>
-		  <span class='posted-on'> Posted on <?php the_time('j F, Y'); ?></span>
+		  <span class='posted-on'> <?php _e('Posted on: ', 'xtra-link');?>  <?php the_time('j F, Y'); ?></span>
 		  
         </small>
 

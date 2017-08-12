@@ -28,17 +28,17 @@
 <h2><?php _e('Or look in the Pages Archives:', 'xtra-link'); ?></h2>
 
 <select class='well' name="archive-dropdown" onchange="document.location.href=this.options[this.selectedIndex].value;">
-  <option value=""><?php echo esc_attr( __( 'Select Day' ) ); ?></option>
+  <option value=""><?php echo esc_attr( __( 'Select Day', 'xtra-link' ) ); ?></option>
   <?php wp_get_archives( array( 'type' => 'daily', 'format' => 'option', 'show_post_count' => 1 ) ); ?>
 </select>
 
 <select class='well' name="archive-dropdown" onchange="document.location.href=this.options[this.selectedIndex].value;">
-  <option value=""><?php echo esc_attr( __( 'Select Month' ) ); ?></option>
+  <option value=""><?php echo esc_attr( __( 'Select Month', 'xtra-link' ) ); ?></option>
   <?php wp_get_archives( array( 'type' => 'monthly', 'format' => 'option', 'show_post_count' => 1 ) ); ?>
 </select>
 
 <select class='well' name="archive-dropdown" onchange="document.location.href=this.options[this.selectedIndex].value;">
-  <option value=""><?php echo esc_attr( __( 'Select Year' ) ); ?></option>
+  <option value=""><?php echo esc_attr( __( 'Select Year', 'xtra-link' ) ); ?></option>
   <?php wp_get_archives( array( 'type' => 'yearly', 'format' => 'option', 'show_post_count' => 1 ) ); ?>
 </select>
 

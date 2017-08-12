@@ -24,7 +24,7 @@
       <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('large',array('class'=>'center-block img-responsive')); ?></a>
     <?php } else {
 // Obrazek Zastępczy z http://placehold.it
-      echo "<hr /><img class='center-block img-responsive' src='http://placehold.it/900x300' alt='dodaj-obrazek'><hr />";
+      echo "<hr /><img class='center-block img-responsive' src='http://placehold.it/900x300' alt='add-image'><hr />";
     } ?>
 
     <?php the_excerpt(); ?>

@@ -81,7 +81,6 @@ $panel  = get_post_meta( get_the_ID(), '_services_6_add_panel', true );
 
 </div><!-- /.container -->
 
-
 	<!-- SERVICES SECTION -->
 	<div id="services">
 		<div class="container">

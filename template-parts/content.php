@@ -1,4 +1,4 @@
-<article id="post-<?php the_ID(); ?>" <?php post_class('home-page'); ?>> <!-- Tutaj dodałem klasę Home Page ... Tak też możecie wcielać własne klasy -->
+<article id="post-<?php the_ID(); ?>" <?php post_class('home-page'); ?>>
 
     <h2>
         <a href="<?php the_permalink(); ?>"><?php the_title();?></a>
@@ -11,7 +11,7 @@
           </a>
            |
           <span class="glyphicon glyphicon-time"></span>
-		  <span class='posted-on'> Posted on <?php the_time('j F, Y'); ?></span>
+		  <span class='posted-on'> <?php _e('Posted on', 'xtra-link'); ?> <?php the_time('j F, Y'); ?></span>
 
         </small>
 
@@ -24,7 +24,7 @@
 	  <br>
     <?php } else {
 // Obrazek Zastępczy z http://placehold.it
-      echo "<hr /><img class='img-responsive' src='http://placehold.it/900x300' alt='dodaj-obrazek'><hr />";
+      echo "<hr /><img class='img-responsive' src='http://placehold.it/900x300' alt='add-image'><hr />";
     } ?>
 
     <?php is_home() ? the_excerpt() : the_content(); ?>

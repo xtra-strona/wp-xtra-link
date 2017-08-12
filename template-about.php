@@ -28,8 +28,9 @@ $team_ab  = get_post_meta( get_the_ID(), '_ab_about_team', true );
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-8 col-lg-offset-2 about-cont">
-					<h2 class='<?php echo get_the_content() ? 'marg-top' : '';?>'><?=$about_1;?><br/>
-						<?=$about_2;?>
+					<h2 class='<?php echo get_the_content() ? 'marg-top' : '';?>'>
+					   <?=$about_1 ? "$about_1<br/>" : '';?>
+						<?=$about_2 ? $about_2 : '';?>
                     </h2>
                     <?php the_content();?>
                     
@@ -43,12 +44,17 @@ $team_ab  = get_post_meta( get_the_ID(), '_ab_about_team', true );
 	    <div class="container">
 	      <div class="row mt">
 			  <div class="col-lg-8 chart hidden-sm hidden-xs">
-			  	<img class="img-responsive" src="<?=$about_3;?>" alt="">
+
+			  	<?= $about_3 ? "<img class='img-responsive' src='$about_3' alt='ab-3-img'>" : ''; ?>
+
 			  </div><!-- col-lg-8 -->
 			  
 			  <div class="col-lg-4">
-			  	<h1><?= $about_4; ?></h1>
-	                  <?= $about_5; ?>
+
+			  	<?= $about_4 ? "<h1>$about_4</h1>" : ''; ?>
+
+	                  <?= $about_5 ? $about_5 : ''; ?>
+
 			  </div><!-- col-lg-4 -->
 	      </div><!-- /row -->
 	    </div><!-- /.container -->
@@ -78,11 +84,11 @@ $icon = $heading = $desc = '';
   ?>
 
       <div class="col-lg-1 centered">
-        <i class="fa <?= $icon; ?>"></i>
+        <?= $icon ? "<i class='fa $icon'></i>" : ''; ?>
       </div>
       <div class="col-lg-3">
-        <h3><?= $heading; ?></h3>
-        <?= $desc; ?>
+        <?= $heading ? "<h3>$heading</h3>" : ''; ?>
+        <?= $desc ? $desc : ''; ?>
       </div>
 
 	<?php } ?>
@@ -94,22 +100,35 @@ $icon = $heading = $desc = '';
 	
 	<!-- TEAM INTRODUCTION -->
 	<div class="container">
+
 		<div class="row mt">
 			<div class="col-lg-8">
-				<h1><?= $about_6; ?></h1>
+				<h1><?= $about_6 ? $about_6 : ''; ?></h1>
 			</div>
 			<div class="col-lg-4"></div>
 		</div><!-- row -->
+
 		<div class="row">
+
 			<div class="col-lg-8">
-				<?= $about_7; ?>
+				<?= $about_7 ? $about_7 : ''; ?>
 			</div>
+
 			<div class="col-lg-3 col-lg-offset-1">
-				<p><b><?= $about_8; ?></b></p>
-				   <?= $about_9; ?>
-		<?php if($ab_pdf) : ?>
-				<p class="tm"><a href="<?=$ab_pdf;?>" download><i class="fa fa-link"></i> <b><?php _e('Download PDF', 'xtra-link'); ?></b></a></p>	
-		<?php endif; ?>
+
+				<?= $about_8 ? "<p><b>$about_8</b></p>" : ''; ?>
+
+				   <?= $about_9 ? $about_9 : ''; ?>
+
+			<?php if($ab_pdf) : ?>
+				<p class="tm">
+					<a href="<?=$ab_pdf;?>" download>
+						<i class="fa fa-link"></i> 
+						<b><?php _e('Download PDF', 'xtra-link'); ?></b>
+					</a>
+				</p>	
+			<?php endif; ?>
+
 			</div>
 		</div>
 		
@@ -154,23 +173,42 @@ $img = $heading_1 = $heading_2 = $textarea = $twitter = $facebook = $e_mail = ''
 
 ?>
 		<div class="col-lg-4 col-sm-6">
+
 			<div class="cardinfo">
-				<img class='img-responsive center-block' src="<?=$img;?>" alt="Gianni">
-				<h4><b><?=$heading_1;?></b></h4>
-				<h6><?=$heading_2;?></h6>
-					<?=$textarea;?>
+
+			  <?= $img ? "<img class='img-responsive center-block' src='$img' alt='Gianni'>" : __('ADD IMAGE', 'xtra-link'); ?>
+
+				<?= $heading_1 ? "<h4><b>$heading_1</b></h4>" : ''; ?>
+
+                 <?= $heading_2 ? "<h6>$heading_2</h6>" : ''; ?>
+
+                 <?= $textarea ? "$textarea" : ''; ?>
+
 				<p>
-					<a href="<?=$facebook;?>" target='_new'><i class="fa fa-facebook"></i></a>
-					<a href="<?=$twitter;?>" target='_new'><i class="fa fa-twitter"></i></a>
+
+					<?= $facebook ? "<a href='$facebook' target='_new'><i class='fa fa-facebook'></i></a>" : ''; ?>
+
+					<?= $twitter ? "<a href='$twitter' target='_new'><i class='fa fa-twitter'></i></a>" : ''; ?>
+
+                 <?php if($e_mail) : ?>
 					<a href="mailto:<?=$e_mail;?>" data-toggle="tooltip" title="<?=$e_mail;?>" target='_new'>
 				     	<i class="fa fa-envelope"></i>
 					</a>
+                 <?php endif; ?>
+				 
 				</p>
+
 			</div>
+
 		</div>
+
 <?php } ?>
+
 		</div><!-- row -->
+
     </div><!-- container -->
+
 <br>
+
 <?php endwhile;
          get_footer(); ?>

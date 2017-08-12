@@ -61,6 +61,15 @@ $settings = get_theme_mod( 'rep_social', $defaults ); ?>
 
 <?php endif; ?>
 
+<form role="search" method="get" class="" action="<?php echo home_url( '/' ); ?>">
+    
+    <input type="text" class="form-control"
+       placeholder="<?php _e( 'Search …', 'xtra-link' ) ?>"
+       value="<?php echo get_search_query() ?>" name="s"
+       title="<?php _e( 'Search for:', 'xtra-link' ) ?>" />
+	   
+</form>
+
 </div>
 		<!-- Menu button -->
 		<div id="menuToggle"><i class="fa fa-bars"></i></div>

@@ -3,7 +3,7 @@
     <input type="text" class="form-control"
        placeholder="<?php _e( 'Search …', 'xtra-link' ) ?>"
        value="<?php echo get_search_query() ?>" name="s"
-       title="<?php echo esc_attr_x( 'Search for:', 'label' ) ?>" />
+       title="<?php _e( 'Search for:', 'xtra-link' ) ?>" />
 
                <span class="input-group-btn">
                    <button class="btn btn-default" type="submit">

@@ -15,8 +15,8 @@ function pag_link($query,$paged) {
   	'end_size'           => 1,
   	'mid_size'           => 4,
   	'prev_next'          => true,
-  	'prev_text'          => __('« Prev'),
-  	'next_text'          => __('Next »'),
+  	'prev_text'          => __('« Prev', 'xtra-link'),
+  	'next_text'          => __('Next »', 'xtra-link'),
   	'type'               => 'plain',
   	'add_args'           => false,
   	'add_fragment'       => '',
@@ -36,7 +36,7 @@ function custom_excerpt_length( $length ) {
 function wpdocs_excerpt_more( $more ) {
     return sprintf( '<p><a href="%1$s"><i class="fa fa-link"></i>%2$s</a></p>',
         get_permalink( get_the_ID() ),
-        __( 'Read More', 'textdomain' )
+        __( 'Read More', 'xtra-link' )
     );
 }
 add_filter( 'excerpt_more', 'wpdocs_excerpt_more' );
@@ -51,11 +51,11 @@ function bootstrap3_comment_form_fields( $fields ) {
 		$html5    = current_theme_supports( 'html5', 'comment-form' ) ? 1 : 0;
 
 		$fields   =  array(
-				'author' => '<div class="form-group comment-form-author">' . '<label for="author">' . __( 'Name' ) . ( $req ? ' <span class="required">*</span>' : '' ) . '</label> ' .
+				'author' => '<div class="form-group comment-form-author">' . '<label for="author">' . __( 'Name', 'xtra-link' ) . ( $req ? ' <span class="required">*</span>' : '' ) . '</label> ' .
 										'<input class="form-control" id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30"' . $aria_req . ' /></div>',
-				'email'  => '<div class="form-group comment-form-email"><label for="email">' . __( 'Email' ) . ( $req ? ' <span class="required">*</span>' : '' ) . '</label> ' .
+				'email'  => '<div class="form-group comment-form-email"><label for="email">' . __( 'Email', 'xtra-link' ) . ( $req ? ' <span class="required">*</span>' : '' ) . '</label> ' .
 										'<input class="form-control" id="email" name="email" ' . ( $html5 ? 'type="email"' : 'type="text"' ) . ' value="' . esc_attr(  $commenter['comment_author_email'] ) . '" size="30"' . $aria_req . ' /></div>',
-				'url'    => '<div class="form-group comment-form-url"><label for="url">' . __( 'Website' ) . '</label> ' .
+				'url'    => '<div class="form-group comment-form-url"><label for="url">' . __( 'Website', 'xtra-link' ) . '</label> ' .
 										'<input class="form-control" id="url" name="url" ' . ( $html5 ? 'type="url"' : 'type="text"' ) . ' value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" /></div>'
 		);
 
@@ -66,7 +66,7 @@ function bootstrap3_comment_form_fields( $fields ) {
 add_filter( 'comment_form_defaults', 'bootstrap3_comment_form' );
 function bootstrap3_comment_form( $args ) {
 		$args['comment_field'] = '<div class="form-group comment-form-comment">
-						<label for="comment">' . _x( 'Comment', 'noun' ) . '</label>
+						<label for="comment">' . __( 'Comment', 'xtra-link' ) . '</label>
 						<textarea class="form-control" id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea>
 				</div>';
 		$args['class_submit'] = 'btn btn-default'; // since WP 4.1
